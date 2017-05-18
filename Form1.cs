@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gma.QrCodeNet.Encoding.Windows.Forms;
 using System.Drawing.Imaging;
+using System.Xml.Linq;
 
 namespace QrGenerator
 {
@@ -22,7 +23,8 @@ namespace QrGenerator
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
-
+            XDocument XML = new XDocument();
+            
 
            // byte[] img = Convert.FromBase64String(
             string sCod = "";
@@ -34,6 +36,9 @@ namespace QrGenerator
                 Image img = (Image)b;
                 img = resizeImage(img, 72, 72);
                 img.Save( "D:\\Imgsqr\\"+sCod+".Jpeg", ImageFormat.Jpeg);
+
+                 
+               
 
             }
            /* SaveFileDialog dialog = new SaveFileDialog();
@@ -119,6 +124,12 @@ namespace QrGenerator
             g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
             g.DrawImage(image, 0, 0, new_width, new_height);
             return new_image;
+        }
+
+        public static byte[] ImageToByte(Image img)
+        {
+            ImageConverter converter = new ImageConverter();
+            return (byte[])converter.ConvertTo(img, typeof(byte[]));
         }
     }
 }

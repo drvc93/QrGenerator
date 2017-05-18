@@ -1,0 +1,13 @@
+c:\users\dvillanueva.brawns_lima1\documents\visual studio 2012\Projects\QrGenerator\QrGenerator\bin\Debug\QrGenerator.exe.config
+c:\users\dvillanueva.brawns_lima1\documents\visual studio 2012\Projects\QrGenerator\QrGenerator\bin\Debug\QrGenerator.exe
+c:\users\dvillanueva.brawns_lima1\documents\visual studio 2012\Projects\QrGenerator\QrGenerator\bin\Debug\QrGenerator.pdb
+c:\users\dvillanueva.brawns_lima1\documents\visual studio 2012\Projects\QrGenerator\QrGenerator\bin\Debug\Gma.QrCodeNet.Encoding.dll
+c:\users\dvillanueva.brawns_lima1\documents\visual studio 2012\Projects\QrGenerator\QrGenerator\bin\Debug\Gma.QrCodeNet.Encoding.pdb
+c:\users\dvillanueva.brawns_lima1\documents\visual studio 2012\Projects\QrGenerator\QrGenerator\bin\Debug\Gma.QrCodeNet.Encoding.xml
+c:\users\dvillanueva.brawns_lima1\documents\visual studio 2012\Projects\QrGenerator\QrGenerator\obj\Debug\QrGenerator.csprojResolveAssemblyReference.cache
+c:\users\dvillanueva.brawns_lima1\documents\visual studio 2012\Projects\QrGenerator\QrGenerator\obj\Debug\QrGenerator.Form1.resources
+c:\users\dvillanueva.brawns_lima1\documents\visual studio 2012\Projects\QrGenerator\QrGenerator\obj\Debug\QrGenerator.Properties.Resources.resources
+c:\users\dvillanueva.brawns_lima1\documents\visual studio 2012\Projects\QrGenerator\QrGenerator\obj\Debug\QrGenerator.csproj.GenerateResource.Cache
+c:\users\dvillanueva.brawns_lima1\documents\visual studio 2012\Projects\QrGenerator\QrGenerator\obj\Debug\QrGenerator.exe
+c:\users\dvillanueva.brawns_lima1\documents\visual studio 2012\Projects\QrGenerator\QrGenerator\obj\Debug\QrGenerator.pdb
+c:\users\dvillanueva.brawns_lima1\documents\visual studio 2012\Projects\QrGenerator\QrGenerator\obj\Debug\QrGenerator.exe.licenses

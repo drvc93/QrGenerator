@@ -33,13 +33,14 @@
             this.gvCodigosLista = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtCod = new System.Windows.Forms.TextBox();
             this.btnAddCod = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gvCodigos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCodigosLista)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(558, 211);
+            this.btnGenerate.Location = new System.Drawing.Point(558, 254);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(75, 23);
             this.btnGenerate.TabIndex = 0;
@@ -80,17 +81,28 @@
             this.btnAddCod.Text = "Agregar";
             this.btnAddCod.Click += new System.EventHandler(this.btnAddCod_Click);
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(558, 190);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton1.TabIndex = 4;
+            this.simpleButton1.Text = "Imprimir";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(645, 294);
+            this.ClientSize = new System.Drawing.Size(837, 294);
+            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.btnAddCod);
             this.Controls.Add(this.txtCod);
             this.Controls.Add(this.gvCodigos);
             this.Controls.Add(this.btnGenerate);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvCodigos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCodigosLista)).EndInit();
             this.ResumeLayout(false);
@@ -105,6 +117,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gvCodigosLista;
         private System.Windows.Forms.TextBox txtCod;
         private DevExpress.XtraEditors.SimpleButton btnAddCod;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }
 

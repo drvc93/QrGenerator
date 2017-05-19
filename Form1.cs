@@ -24,28 +24,28 @@ namespace QrGenerator
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             XDocument XML = new XDocument();
-            
 
-           // byte[] img = Convert.FromBase64String(
+
+            // byte[] img = Convert.FromBase64String(
             string sCod = "";
 
             for (int i = 0; i < data.Rows.Count; i++)
             {
                 sCod = data.Rows[i]["CodigoFitrro"].ToString();
                 Bitmap b = GenerateQRCode(sCod, Color.Black, Color.White);
-                Image img = (Image)b;
-                img = resizeImage(img, 72, 72);
-                img.Save( "D:\\Imgsqr\\"+sCod+".Jpeg", ImageFormat.Jpeg);
+                Image img = (Image) b;
+                img = resizeImage(img, 100, 100);
+                img.Save("D:\\Imgsqr\\" + sCod + ".Jpeg", ImageFormat.Jpeg);
 
-                 
-               
+
+
 
             }
-           /* SaveFileDialog dialog = new SaveFileDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                b.Save(dialog.FileName + ".png", ImageFormat.Png);
-            }*/
+            /* SaveFileDialog dialog = new SaveFileDialog();
+             if (dialog.ShowDialog() == DialogResult.OK)
+             {
+                 b.Save(dialog.FileName + ".png", ImageFormat.Png);
+             }*/
         }
 
         private Bitmap GenerateQRCode(string text, System.Drawing.Color DarkColor, System.Drawing.Color LightColor)
@@ -53,7 +53,7 @@ namespace QrGenerator
             Gma.QrCodeNet.Encoding.QrEncoder Encoder = new Gma.QrCodeNet.Encoding.QrEncoder(Gma.QrCodeNet.Encoding.ErrorCorrectionLevel.H);
             Gma.QrCodeNet.Encoding.QrCode Code = Encoder.Encode(text);
             Bitmap TempBMP = new Bitmap(Code.Matrix.Width, Code.Matrix.Height);
-           // Bitmap TempBMP = new Bitmap(48, 48);
+            // Bitmap TempBMP = new Bitmap(48, 48);
             for (int X = 0; X <= Code.Matrix.Width - 1; X++)
             {
                 for (int Y = 0; Y <= Code.Matrix.Height - 1; Y++)
@@ -102,8 +102,8 @@ namespace QrGenerator
         }
 
         public void InsertData(int nro, string cod)
-        {   
-            int nrorow =  0 ;
+        {
+            int nrorow = 0;
 
             if (data.Rows.Count > 0)
             {
@@ -120,7 +120,7 @@ namespace QrGenerator
         public static Image resizeImage(Image image, int new_height, int new_width)
         {
             Bitmap new_image = new Bitmap(new_width, new_height);
-            Graphics g = Graphics.FromImage((Image)new_image);
+            Graphics g = Graphics.FromImage((Image) new_image);
             g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
             g.DrawImage(image, 0, 0, new_width, new_height);
             return new_image;
@@ -129,7 +129,47 @@ namespace QrGenerator
         public static byte[] ImageToByte(Image img)
         {
             ImageConverter converter = new ImageConverter();
-            return (byte[])converter.ConvertTo(img, typeof(byte[]));
+            return (byte[]) converter.ConvertTo(img, typeof(byte[]));
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            string html_head = " <body> ";
+            string sBody = "";
+            string sFoot = "</body>";
+            string sCod = "";
+            for (int i = 0; i < data.Rows.Count; i++)
+            {
+                sCod = data.Rows[i]["CodigoFitrro"].ToString();
+                Bitmap b = GenerateQRCode(sCod, Color.Black, Color.White);
+                //Image img = (Image)b;
+                //img = resizeImage(img, 100, 100);
+                //  img.Save("D:\\Imgsqr\\" + sCod + ".Jpeg", ImageFormat.Jpeg);
+                //  string s = Convert.ToBase64String()
+                System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                b.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                byte[] byteImage = ms.ToArray();
+
+                string SigBase64 = Convert.ToBase64String(byteImage); //Get Base64
+
+                sBody = sBody + " <img alt='Embedded Image'  src='data:image/jpeg;base64," + SigBase64 + "' /> <br /> <br /> ";
+
+
+            }
+
+            string Html = html_head + sBody + sFoot;
+
+            Html = Html;
+
+            WebView w = new WebView();
+            w.shtml = Html;
+            w.Show();
+            
         }
     }
 }
